@@ -13,6 +13,14 @@ setup() {
 	    skip "${KATA_HYPERVISOR} is already running all the tests with guest-pulling, skip this specific one"
     fi
 
+    if [ "${KATA_HYPERVISOR}" == "qemu-sev" ]; then
+	    skip "${KATA_HYPERVISOR} is already running all the tests with guest-pulling, skip this specific one"
+    fi
+
+    if [ "${KATA_HYPERVISOR}" == "qemu-snp" ]; then
+	    skip "${KATA_HYPERVISOR} is already running all the tests with guest-pulling, skip this specific one"
+    fi
+
     if is_confidential_hardware; then
         skip "Due to issues related to pull-image integration skip tests for ${KATA_HYPERVISOR}."
     fi
@@ -231,6 +239,14 @@ setup() {
 
 teardown() {
     if [ "${KATA_HYPERVISOR}" = "qemu-tdx" ]; then
+	    skip "${KATA_HYPERVISOR} is already running all the tests with guest-pulling, skip this specific one"
+    fi
+
+    if [ "${KATA_HYPERVISOR}" == "qemu-sev" ]; then
+	    skip "${KATA_HYPERVISOR} is already running all the tests with guest-pulling, skip this specific one"
+    fi
+
+    if [ "${KATA_HYPERVISOR}" == "qemu-snp" ]; then
 	    skip "${KATA_HYPERVISOR} is already running all the tests with guest-pulling, skip this specific one"
     fi
 
