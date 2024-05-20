@@ -10,6 +10,8 @@ load "${BATS_TEST_DIRNAME}/tests_common.sh"
 
 setup() {
 	[ "${KATA_HYPERVISOR}" = "qemu-tdx" ] && skip "See: https://github.com/kata-containers/kata-containers/issues/9663"
+	[ "${KATA_HYPERVISOR}" == "qemu-sev" ] && skip "See: https://github.com/kata-containers/kata-containers/issues/9663"
+	[ "${KATA_HYPERVISOR}" == "qemu-snp" ] && skip "See: https://github.com/kata-containers/kata-containers/issues/9663"
 
 	pod_name="custom-dns-test"
 	file_name="/etc/resolv.conf"
@@ -40,6 +42,8 @@ setup() {
 
 teardown() {
 	[ "${KATA_HYPERVISOR}" = "qemu-tdx" ] && skip "See: https://github.com/kata-containers/kata-containers/issues/9663"
+	[ "${KATA_HYPERVISOR}" == "qemu-sev" ] && skip "See: https://github.com/kata-containers/kata-containers/issues/9663"
+	[ "${KATA_HYPERVISOR}" == "qemu-snp" ] && skip "See: https://github.com/kata-containers/kata-containers/issues/9663"
 
 	# Debugging information
 	kubectl describe "pod/$pod_name"

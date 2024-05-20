@@ -14,6 +14,7 @@ setup() {
 	issue_url="https://github.com/kata-containers/kata-containers/issues/8906"
 	[ "${KATA_HYPERVISOR}" == "qemu-se" ] && skip "test not working for IBM Z LPAR (see ${issue_url})"
 	[ "${KATA_HYPERVISOR}" == "qemu-tdx" ] && skip "See: https://github.com/kata-containers/kata-containers/issues/9667"
+
 	get_pod_config_dir
 
 	pod_yaml="${pod_config_dir}"/inotify-configmap-pod.yaml
@@ -49,6 +50,7 @@ teardown() {
 	issue_url="https://github.com/kata-containers/kata-containers/issues/8906"
 	[ "${KATA_HYPERVISOR}" == "qemu-se" ] && skip "test not working for IBM Z LPAR (see ${issue_url})"
 	[ "${KATA_HYPERVISOR}" == "qemu-tdx" ] && skip "See: https://github.com/kata-containers/kata-containers/issues/9667"
+
 	# Debugging information
 	kubectl describe "pod/$pod_name"
 	kubectl delete pod "$pod_name"
