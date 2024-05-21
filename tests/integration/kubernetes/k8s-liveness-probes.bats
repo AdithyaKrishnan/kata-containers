@@ -10,8 +10,6 @@ load "${BATS_TEST_DIRNAME}/tests_common.sh"
 
 setup() {
 	[ "${KATA_HYPERVISOR}" = "qemu-tdx" ] && skip "See: https://github.com/kata-containers/kata-containers/issues/9665"
-	[ "${KATA_HYPERVISOR}" == "qemu-sev" ] && skip "See: https://github.com/kata-containers/kata-containers/issues/9665"
-	[ "${KATA_HYPERVISOR}" == "qemu-snp" ] && skip "See: https://github.com/kata-containers/kata-containers/issues/9665"
 
 	sleep_liveness=20
 	agnhost_name="${container_images_agnhost_name}"
@@ -94,8 +92,6 @@ setup() {
 
 teardown() {
 	[ "${KATA_HYPERVISOR}" = "qemu-tdx" ] && skip "See: https://github.com/kata-containers/kata-containers/issues/9665"
-	[ "${KATA_HYPERVISOR}" == "qemu-sev" ] && skip "See: https://github.com/kata-containers/kata-containers/issues/9665"
-	[ "${KATA_HYPERVISOR}" == "qemu-snp" ] && skip "See: https://github.com/kata-containers/kata-containers/issues/9665"
 
 	# Debugging information
 	kubectl describe "pod/$pod_name"

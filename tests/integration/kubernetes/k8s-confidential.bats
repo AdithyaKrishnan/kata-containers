@@ -10,7 +10,6 @@ load "${BATS_TEST_DIRNAME}/confidential_common.sh"
 load "${BATS_TEST_DIRNAME}/tests_common.sh"
 
 setup() {
-	[ "${KATA_HYPERVISOR}" == "qemu-sev" ] && skip "See: https://github.com/kata-containers/kata-containers/issues/9667"
 	[ "${KATA_HYPERVISOR}" == "qemu-snp" ] && skip "See: https://github.com/kata-containers/kata-containers/issues/9667"
 	if ! is_confidential_hardware; then
 		skip "Test is supported only on confidential hardware (which ${KATA_HYPERVISOR} is not)"
@@ -45,7 +44,6 @@ setup() {
 }
 
 teardown() {
-	[ "${KATA_HYPERVISOR}" == "qemu-sev" ] && skip "See: https://github.com/kata-containers/kata-containers/issues/9667"
 	[ "${KATA_HYPERVISOR}" == "qemu-snp" ] && skip "See: https://github.com/kata-containers/kata-containers/issues/9667"
 	if ! is_confidential_hardware; then
 		skip "Test is supported only on confidential hardware (which ${KATA_HYPERVISOR} is not)"

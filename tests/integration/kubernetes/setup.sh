@@ -114,9 +114,6 @@ add_runtime_handler_annotations() {
 				add_annotations_to_yaml "${K8S_TEST_YAML}" "${handler_annotation}" "${handler_value}"
 			done
 			;;
-	esac
-	
-	case "${KATA_HYPERVISOR}" in
 		qemu-sev)
 			info "Add runtime handler annotations for ${KATA_HYPERVISOR}"
 			local handler_annotation="io.containerd.cri.runtime-handler"
@@ -126,9 +123,6 @@ add_runtime_handler_annotations() {
 				add_annotations_to_yaml "${K8S_TEST_YAML}" "${handler_annotation}" "${handler_value}"
 			done
 			;;
-	esac
-
-	case "${KATA_HYPERVISOR}" in
 		qemu-snp)
 			info "Add runtime handler annotations for ${KATA_HYPERVISOR}"
 			local handler_annotation="io.containerd.cri.runtime-handler"
