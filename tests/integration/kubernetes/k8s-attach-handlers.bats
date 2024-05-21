@@ -9,6 +9,7 @@ load "${BATS_TEST_DIRNAME}/../../common.bash"
 load "${BATS_TEST_DIRNAME}/tests_common.sh"
 
 setup() {
+	[ "${KATA_HYPERVISOR}" == "qemu-snp" ] && skip "See: https://github.com/kata-containers/kata-containers/issues/9667"
 	nginx_version="${docker_images_nginx_version}"
 	nginx_image="nginx:$nginx_version"
 
@@ -46,6 +47,7 @@ setup() {
 }
 
 teardown(){
+	[ "${KATA_HYPERVISOR}" == "qemu-snp" ] && skip "See: https://github.com/kata-containers/kata-containers/issues/9667"
 	# Debugging information
 	kubectl describe "pod/$pod_name"
 
