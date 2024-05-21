@@ -18,6 +18,7 @@ assert_equal() {
 }
 
 setup() {
+	[ "${KATA_HYPERVISOR}" == "qemu-snp" ] && skip "See: https://github.com/kata-containers/kata-containers/issues/9663"
 	pod_name="sharevol-kata"
 	get_pod_config_dir
 	pod_logs_file=""
@@ -68,6 +69,7 @@ setup() {
 }
 
 teardown() {
+	[ "${KATA_HYPERVISOR}" == "qemu-snp" ] && skip "See: https://github.com/kata-containers/kata-containers/issues/9663"
 	# Debugging information
 	kubectl describe "pod/$pod_name"
 
