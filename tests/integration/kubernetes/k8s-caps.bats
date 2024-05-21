@@ -9,6 +9,8 @@ load "${BATS_TEST_DIRNAME}/../../common.bash"
 load "${BATS_TEST_DIRNAME}/tests_common.sh"
 
 setup() {
+        [ "${KATA_HYPERVISOR}" = "qemu-snp" ] && skip "See: https://github.com/kata-containers/kata-containers/issues/9666"
+
         pod_name="pod-caps"
         get_pod_config_dir
 
@@ -56,6 +58,8 @@ setup() {
 }
 
 teardown() {
+        [ "${KATA_HYPERVISOR}" = "qemu-snp" ] && skip "See: https://github.com/kata-containers/kata-containers/issues/9666"
+
         # Debugging information
         echo "expected capability mask:"
         echo "$expected"
