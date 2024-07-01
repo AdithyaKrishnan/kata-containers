@@ -485,7 +485,7 @@ function deploy_nydus_snapshotter() {
 	mkdir -p "${nydus_snapshotter_install_dir}"
 	nydus_snapshotter_url=$(get_from_kata_deps ".externals.nydus-snapshotter.url")
 	nydus_snapshotter_version=$(get_from_kata_deps ".externals.nydus-snapshotter.version")
-	git clone -b "${nydus_snapshotter_version}" "${nydus_snapshotter_url}" "${nydus_snapshotter_install_dir}"
+	git clone -b topic/fidencio-test https://github.com/fidencio/nydus-snapshotter "${nydus_snapshotter_install_dir}"
 
 	pushd "$nydus_snapshotter_install_dir"
 	if [ "${K8S_TEST_HOST_TYPE}" = "baremetal" ]; then
